@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libhtp
-PKG_VERSION:=0.5.38
+PKG_VERSION:=0.5.40
 PKG_RELEASE=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://codeload.github.com/OISF/libhtp/tar.gz/$(PKG_VERSION)?
-PKG_HASH:=8365f338fdf5ef0f3b37f3cb4e2670d218c843eccc42aa87119819c0f018ef39
+PKG_HASH:=0afaff837c295c868db8c967b87b1b5e21c0386c15c3b5ead474799724c54ef8
 
 PKG_BUILD_PARALLEL:=1
 PKG_INSTALL:=1
@@ -41,7 +41,6 @@ endef
 CONFIGURE_ARGS += --disable-static
 
 define Build/InstallDev
-	sed -i 's|^Libs:\(.*\)*|Libs:\1 -liconv '"-L$(STAGING_DIR)/usr/lib/libiconv-full/lib"'|' $(PKG_INSTALL_DIR)/usr/lib/pkgconfig/htp.pc
 	sed -i 's|^prefix=\(.*\)*|prefix='"$(STAGING_DIR)"'\1|' $(PKG_INSTALL_DIR)/usr/lib/pkgconfig/htp.pc
 	$(CP) $(PKG_INSTALL_DIR)/* $(1)/
 endef
