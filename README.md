@@ -26,11 +26,10 @@ Packages
  * btop: https://github.com/aristocratos/btop
  * rust: https://github.com/Itus-Shield/packages/tree/rust
  * rust_host: https://github.com/Itus-Shield/packages/tree/rust_host
- * libndpi-master: https://github.com/ntop/nDPI/commits/master
+ * libndpi: https://github.com/ntop/nDPI/commits/master
  * td: https://github.com/tdlib/td
  * nDPId: https://github.com/utoni/nDPId
  * nDPId-master: https://github.com/utoni/nDPId/commits/main
- * potd: https://github.com/utoni/potd/commits/master
  * shadowsocks-libev: https://github.com/shadowsocks/shadowsocks-libev/commits/master
  * suricata6: https://github.com/Itus-Shield/packages/tree/suricata6
  * suricata-update: https://github.com/Itus-Shield/packages/tree/suricata6

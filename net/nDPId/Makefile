@@ -1,22 +1,26 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=nDPId
-PKG_VERSION:=1.4
+PKG_VERSION:=1.5
 PKG_RELEASE:=$(AUTORELEASE)
 
-PKG_SOURCE:=$(PKG_VERSION).tar.gz
-PKG_SOURCE_URL:=https://github.com/lnslbrty/nDPId/archive/refs/tags
-PKG_HASH:=b2a95d7ea1798e48bccabf879f7327c7cc27db83301dafc483e01bff7dc2b4f4
+#PKG_SOURCE:=$(PKG_VERSION).tar.gz
+#PKG_SOURCE_URL:=https://github.com/lnslbrty/nDPId/archive/refs/tags
+#PKG_HASH:=a512d5fbdcdaef01a0c3ee7f6b8870ac9c6c870e11c1a30b782550e2cd247de7
+
+# 1.5 Release does not work with current libndpi builds.
+PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=https://github.com/lnslbrty/nDPId.git
+PKG_SOURCE_VERSION:=83409e5b79ab224372dd8486249c668b2998a0a4
+PKG_HASH:=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
+PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 
 PKG_MAINTAINER:=Toni
 PKG_LICENSE:=GPL-3
 PKG_LICENSE_FILES:=COPYING
-PKG_BUILD_DEPENDS:=libndpi-master
 
 CMAKE_INSTALL:=1
-
-NDPI_STATIC_LIB="$(STAGING_DIR)/usr/lib/libndpi-master.a"
-NDPI_INC="$(STAGING_DIR)/usr/include/ndpi-master"
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
@@ -25,7 +29,7 @@ define Package/nDPId
  TITLE:=nDPId is a tiny nDPI based daemons / toolkit
  SECTION:=net
  CATEGORY:=Network
- DEPENDS:=+libpcap +LIBNDPI_GCRYPT:libgcrypt
+ DEPENDS:=+libpcap +LIBNDPI_GCRYPT:libgcrypt +libndpi
  URL:=http://github.com/lnslbrty/nDPId
 endef
 
@@ -46,11 +50,8 @@ endef
 
 CMAKE_OPTIONS += -DBUILD_EXAMPLES=ON
 CMAKE_OPTIONS += -DBUILD_NDPI=OFF
-CMAKE_OPTIONS += -DNDPI_NO_PKGCONFIG=ON
 CMAKE_OPTIONS += -DENABLE_SANITIZER=OFF
 CMAKE_OPTIONS += -DENABLE_MEMORY_PROFILING=OFF
-CMAKE_OPTIONS += -DLIBNDPI_INC="$(NDPI_INC)"
-CMAKE_OPTIONS += -DLIBNDPI_LIB="$(NDPI_STATIC_LIB)"
 
 ifneq ($(CONFIG_LIBNDPI_GCRYPT),)
 CMAKE_OPTIONS += -DNDPI_WIDTH_GCRYPT=ON

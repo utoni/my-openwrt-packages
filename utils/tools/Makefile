@@ -5,10 +5,10 @@ PKG_VERSION:=1.0
 PKG_RELEASE:=$(PKT_SOURCE_VERSION)
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=git://github.com/lnslbrty/tools.git
-PKG_SOURCE_VERSION:=fcf4582f7967ae17b33bf8649ba55cc73bafc1d3
+PKG_SOURCE_URL:=https://github.com/utoni/tools.git
+PKG_SOURCE_VERSION:=6a7eabbfee8c8df1a21f3da6e0fd5643c40ee607
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
-PKG_MIRROR_HASH:=ccff5d4a64af9bc5d67b838c20ef1c85ce9182cf3db69c87755535a0fd972843
+PKG_MIRROR_HASH:=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 
 PKG_MAINTAINER:=Toni Uhlig <matzeton@gmail.com>
@@ -38,7 +38,7 @@ endef
 define Package/tools/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) \
-		$(addprefix $(PKG_BUILD_DIR)/,aes asciihexer dummyshell suidcmd scrambler gol) \
+		$(addprefix $(PKG_BUILD_DIR)/,aes asciihexer ascii85 dummyshell suidcmd progressbar gol) \
 		$(1)/usr/bin/
 endef
 

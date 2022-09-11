@@ -1,12 +1,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=nDPId-master
-PKG_VERSION:=1.4
+PKG_VERSION:=1.5
 PKG_RELEASE:=$(AUTORELEASE)
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/lnslbrty/nDPId.git
-PKG_SOURCE_VERSION:=9e07a57566cc45bf92a845d8cee968d72e0f314e
+PKG_SOURCE_VERSION:=83409e5b79ab224372dd8486249c668b2998a0a4
+PKG_HASH:=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 
@@ -65,14 +66,14 @@ endif
 define Build/Prepare
 	$(PKG_UNPACK)
 	$(Build/Patch)
-	$(SED) 's/^#define NDPI_API_VERSION.*/#define NDPI_API_VERSION 1/' \
-		$(PKG_BUILD_DIR)/libnDPI/src/include/ndpi_api.h.in
 	env \
+		CC="$(TARGET_CC)" \
+		AR="$(TARGET_AR)" \
+		RANLIB="$(TARGET_RANLIB)" \
 		CFLAGS="$(TARGET_CFLAGS)" \
 		CPPFLAGS="$(TARGET_CPPFLAGS)" \
 		LDFLAGS="$(TARGET_LDFLAGS)" \
-		CROSS_COMPILE_TRIPLET="$(GNU_TARGET_NAME)" \
-		MAKE_PROGRAM="env -uCFLAGS -uCPPFLAGS $(MAKE)" \
+		MAKE_PROGRAM="$(MAKE)" \
 		$(PKG_BUILD_DIR)/scripts/get-and-build-libndpi.sh
 endef
 
