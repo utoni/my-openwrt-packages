@@ -1,4 +1,4 @@
--include $(TOPDIR)/package/feeds/packages/rust/rustc_targets.mk
+-include $(TOPDIR)/package/feeds/my_openwrt_packages/rust/rustc_targets.mk
 
 # These RUSTFLAGS are common across all TARGETs
 RUSTFLAGS += \

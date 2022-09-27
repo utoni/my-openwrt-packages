@@ -11,6 +11,10 @@ make distclean
 make menuconfig
 ```
 
+If you change `my_openwrt_packages` to something else, you need to change the include path in
+`lang/rust/rustc_environment.mk` to `include $(TOPDIR)/package/feeds/[your-feed-name]/rust/rustc_targets.mk`.
+Otherwise, `rust/host` will not be able to compile as well as packages that depend on Rust (e.g. `suricata6`).
+
 Why?
 ====
 

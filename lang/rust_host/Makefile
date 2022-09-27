@@ -13,7 +13,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=rust_host
-PKG_VERSION:=1.62.0
+PKG_VERSION:=1.62.1
 PKG_RELEASE:=1
 
 PKG_LICENSE:=Apache-2.0 MIT

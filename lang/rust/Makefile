@@ -14,7 +14,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=rust
 
-PKG_VERSION:=1.62.0
+PKG_VERSION:=1.62.1
 PKG_RELEASE:=1
 
 PKG_LICENSE:=Apache-2.0 MIT
@@ -106,6 +106,12 @@ define Host/Install
 endef
 
 define Host/Compile
+	@echo '========================='
+	@echo '=   RUSTC_TARGET_ARCH   ='
+	@echo '========================='
+	@echo '$(RUSTC_TARGET_ARCH)'
+	@echo '========================='
+	$(if $(RUSTC_TARGET_ARCH),,$(error RUSTC_TARGET_ARCH is not set. Did you change the package feed name?))
 	cd $(HOST_BUILD_DIR) && \
 	  CARGO_HOME='$(CARGO_HOME)' \
 	  CXXFLAGS='$(HOST_CXXFLAGS)' \
