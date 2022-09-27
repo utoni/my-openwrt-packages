@@ -29,7 +29,7 @@ define Package/nDPId
  TITLE:=nDPId is a tiny nDPI based daemons / toolkit
  SECTION:=net
  CATEGORY:=Network
- DEPENDS:=+libpcap +LIBNDPI_GCRYPT:libgcrypt +libndpi
+ DEPENDS:=@!SMALL_FLASH @!LOW_MEMORY_FOOTPRINT +libpcap +LIBNDPI_GCRYPT:libgcrypt +libndpi
  URL:=http://github.com/lnslbrty/nDPId
 endef
 

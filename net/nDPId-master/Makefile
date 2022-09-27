@@ -6,7 +6,7 @@ PKG_RELEASE:=$(AUTORELEASE)
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/lnslbrty/nDPId.git
-PKG_SOURCE_VERSION:=83409e5b79ab224372dd8486249c668b2998a0a4
+PKG_SOURCE_VERSION:=94aa02b298321005b6334262242c30eeb94549ae
 PKG_HASH:=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
@@ -24,7 +24,7 @@ define Package/nDPId-master
  TITLE:=nDPId is a tiny nDPI based daemons / toolkit (master branch)
  SECTION:=net
  CATEGORY:=Network
- DEPENDS:=+libpcap +zlib +LIBNDPI_GCRYPT:libgcrypt
+ DEPENDS:=@!SMALL_FLASH @!LOW_MEMORY_FOOTPRINT +libpcap +zlib +LIBNDPI_GCRYPT:libgcrypt
  URL:=http://github.com/lnslbrty/nDPId
 endef
 
@@ -64,6 +64,7 @@ endef
 endif
 
 define Build/Prepare
+	$(call Build/Prepare/Default)
 	$(PKG_UNPACK)
 	$(Build/Patch)
 	env \
