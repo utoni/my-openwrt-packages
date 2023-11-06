@@ -5,8 +5,8 @@ PKG_VERSION:=1.5
 PKG_RELEASE:=$(AUTORELEASE)
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/lnslbrty/nDPId.git
-PKG_SOURCE_VERSION:=94aa02b298321005b6334262242c30eeb94549ae
+PKG_SOURCE_URL:=https://github.com/utoni/nDPId.git
+PKG_SOURCE_VERSION:=84b12cd02c1f11d134f00b0a066414a677a53719
 PKG_HASH:=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
@@ -25,7 +25,7 @@ define Package/nDPId-master
  SECTION:=net
  CATEGORY:=Network
  DEPENDS:=@!SMALL_FLASH @!LOW_MEMORY_FOOTPRINT +libpcap +zlib +LIBNDPI_GCRYPT:libgcrypt
- URL:=http://github.com/lnslbrty/nDPId
+ URL:=http://github.com/utoni/nDPId
 endef
 
 define Package/nDPId-master/description

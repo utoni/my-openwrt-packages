@@ -5,13 +5,13 @@ PKG_VERSION:=1.5
 PKG_RELEASE:=$(AUTORELEASE)
 
 #PKG_SOURCE:=$(PKG_VERSION).tar.gz
-#PKG_SOURCE_URL:=https://github.com/lnslbrty/nDPId/archive/refs/tags
+#PKG_SOURCE_URL:=https://github.com/utoni/nDPId/archive/refs/tags
 #PKG_HASH:=a512d5fbdcdaef01a0c3ee7f6b8870ac9c6c870e11c1a30b782550e2cd247de7
 
 # 1.5 Release does not work with current libndpi builds.
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/lnslbrty/nDPId.git
-PKG_SOURCE_VERSION:=83409e5b79ab224372dd8486249c668b2998a0a4
+PKG_SOURCE_URL:=https://github.com/utoni/nDPId.git
+PKG_SOURCE_VERSION:=c9514136b7c4246a57b85474d1a8e376a9009d4a
 PKG_HASH:=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
@@ -30,7 +30,7 @@ define Package/nDPId
  SECTION:=net
  CATEGORY:=Network
  DEPENDS:=@!SMALL_FLASH @!LOW_MEMORY_FOOTPRINT +libpcap +LIBNDPI_GCRYPT:libgcrypt +libndpi
- URL:=http://github.com/lnslbrty/nDPId
+ URL:=http://github.com/utoni/nDPId
 endef
 
 define Package/nDPId/description

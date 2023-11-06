@@ -23,7 +23,7 @@ define Package/suricata-update
     SUBMENU:=Firewall
     SECTION:=net
     CATEGORY:=Network
-    DEPENDS:=+suricata6 +python3-pip +python3-yaml
+    DEPENDS:=+python3-pip +python3-yaml
     TITLE:=OISF Suricata IDS Update Utility
     URL:=https://www.openinfosecfoundation.org/
 endef
